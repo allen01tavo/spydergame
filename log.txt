@@ -1,0 +1,67 @@
+INFO:root:Starting Tic-Tac-Toe Spider
+INFO:root:Starting Tic-Tac-Toe Spider
+INFO:root:Starting Tic-Tac-Toe Spider
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:Starting Tic-Tac-Toe Spider
+INFO:root:Starting Tic-Tac-Toe Spider
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a
+INFO:root:P1a

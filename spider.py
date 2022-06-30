@@ -165,7 +165,8 @@ def move_player_1a(x,y):
 	logging.info("P1a")
 	player1a.setheading(player1a.towards(x,y))
 	player1a.goto(x,y)
-	logging.info("P2b Position: " + player2b.position())
+	print(player1a.position())
+	logging.info("P1a Position: " + player1a.position())
 	player1a.ondrag(move_player_1a)
 
 # function to move player 1 chip b
@@ -175,6 +176,9 @@ def move_player_1b(x,y):
 	player1b.setheading(player1b.towards(x,y))
 	player1b.goto(x,y)
 	print(player1b.position())
+	print("This is x cor: " + playar1b.xcor())
+	print("This is x cor: " + player1b.ycor())
+	logging.info("P1b Position: " + player1b.position())
 	player1b.ondrag(move_player_1b)
 
 # function to move player 1 chip c
@@ -184,6 +188,7 @@ def move_player_1c(x,y):
 	player1c.setheading(player1c.towards(x,y))
 	player1c.goto(x,y)
 	print(player1c.position())
+	logging.info("P1c Position: " + player1c.position())
 	player1c.ondrag(move_player_1c)
 
 # function to move player 2 chip a
@@ -193,6 +198,7 @@ def move_player_2a(x,y):
 	player2a.setheading(player2a.towards(x,y))
 	player2a.goto(x,y)
 	print(player2a.position())
+	logging.info("P2a Position: " + player2a.position())
 	player2a.ondrag(move_player_2a)
 
 # function to move player 2 chip b
@@ -202,6 +208,7 @@ def move_player_2b(x,y):
 	player2b.setheading(player2b.towards(x,y))
 	player2b.goto(x,y)
 	print(player2b.position())
+	logging.info("P2b Position: " + player2b.position())
 	player2b.ondrag(move_player_2b)
 
 # function to move player 2 chip c
@@ -211,6 +218,7 @@ def move_player_2c(x,y):
 	player2c.setheading(player2c.towards(x,y))
 	player2c.goto(x,y)
 	print(player2c.position())
+	logging.info("P2c Position: " + player2c.position())
 	player2c.ondrag(move_player_2c)
 
 # creates the help menue item
@@ -257,6 +265,7 @@ def help_function():
 	popup = tk.Tk()
 	popup.wm_title("HELP")
 	def close_popup():
+		print("Help window has been closed")
 		popup.destroy()
 	label = tk.Label(popup, text=msg)
 	label.pack(side="top", fill="x", pady=10)
@@ -280,7 +289,7 @@ def restart_function():
 	player2a.goto(-300,-40)
 	player2b.goto(-300,-90)
 	player2c.goto(-300,-140)
-	print("Game has been reseted")
+	print("Game has been re-started")
 	move_players()
 
 # user is able to drag and move the chips
@@ -327,6 +336,10 @@ def main():
 		close_game_banner()
 		move_players()
 		# implementation needed for the logic of the game
+		# coordinate for the game
+		# (-240, 240), (0, 240), (240, 240)
+		# (-240, 0), (0,0), (240, 0)
+		# (-240, -240), (0, -240), (240, -240)
 		wn.update()
 
 
