@@ -53,6 +53,7 @@ class GameLogic:
 
 		rsl True
 
+	# function returns true if the 
 	def diagonal_forward(self, x1, x2, x3):
 		return game_logic(x1, x2, x3, "(-240,240)", "(0,0)", "(-240,-240)")
 
@@ -79,128 +80,10 @@ class GameLogic:
 
 	def game_logic(self, x1, x2, x3, l1, l2, l3):
 
-		self.x1_ = x1
-		self.x2_ = x2
-		self.x3_ = x3
-
-		if(self.x1_.position() == (-240,240) and self.x2_.position() == (0,0) and self.x3_ .position() == (240,-240))
-			print("Players wins")
-
-		if(self.x2_.position() == (-240,240) and self.x3_ .position() == (0,0) and self.x1_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_ .position() == (-240,240) and self.x1_.position() == (0,0) and self.x2_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x1_.position() == (-240,240) and self.x3_ .position() == (0,0) and self.x2_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x2_.position() == (-240,240) and self.x1_.position() == (0,0) and self.x3_ .position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_.position() == (-240,240) and self.x2_.position() == (0,0) and self.x1_.position() == (240,-240))
-			print("Plyaers wins")
-
-	def horizontal_backward(self, x1, x2, x3):
-
-		self.x1_ = x1
-		self.x2_ = x2
-		self.x3_ = x3
-
-		if(self.x1_.position() == (240,240) and self.x2_.position() == (0,0) and self.x3_ .position() == (-240,-240))
-			print("Players wins")
-
-		if(self.x2_.position() == (240,240) and self.x3_ .position() == (0,0) and self.x1_.position() == (-240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_ .position() == (240,240) and self.x1_.position() == (0,0) and self.x2_.position() == (-240,-240))
-			print("Plyaers wins")
-
-		if(self.x1_.position() == (240,240) and self.x3_ .position() == (0,0) and self.x2_.position() == (-240,-240))
-			print("Plyaers wins")
-
-		if(self.x2_.position() == (240,240) and self.x1_.position() == (0,0) and self.x3_ .position() == (-240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_.position() == (240,240) and self.x2_.position() == (0,0) and self.x1_.position() == (-240,-240))
-			print("Plyaers wins")
-
-	def horizontal_middle(self, x1, x2, x3):
-
-		self.x1_ = x1
-		self.x2_ = x2
-		self.x3_ = x3
-
-		if(self.x1_.position() == (-240,0) and self.x2_.position() == (0,0) and self.x3_ .position() == (240,0))
-			print("Players wins")
-
-		if(self.x2_.position() == (-240,0) and self.x3_ .position() == (0,0) and self.x1_.position() == (240,0))
-			print("Plyaers wins")
-
-		if(self.x3_ .position() == (-240,0) and self.x1_.position() == (0,0) and self.x2_.position() == (240,0))
-			print("Plyaers wins")
-
-		if(self.x1_.position() == (-240,0) and self.x3_ .position() == (0,0) and self.x2_.position() == (240,0))
-			print("Plyaers wins")
-
-		if(self.x2_.position() == (-240,0) and self.x1_.position() == (0,0) and self.x3_ .position() == (240,0))
-			print("Plyaers wins")
-
-		if(self.x3_.position() == (-240,0) and self.x2_.position() == (0,0) and self.x1_.position() == (240,0))
-			print("Plyaers wins")
-
-
-	def horizontal_top(self, x1, x2, x3):
-
-		self.x1_ = x1
-		self.x2_ = x2
-		self.x3_ = x3
-
-		if(self.x1_.position() == (-240,240) and self.x2_.position() == (0,240) and self.x3_ .position() == (240,240))
-			print("Players wins")
-
-		if(self.x2_.position() == (-240,240) and self.x3_ .position() == (0,240) and self.x1_.position() == (240,240))
-			print("Plyaers wins")
-
-		if(self.x3_ .position() == (-240,240) and self.x1_.position() == (0,240) and self.x2_.position() == (240,240))
-			print("Plyaers wins")
-
-		if(self.x1_.position() == (-240,240) and self.x3_ .position() == (0,240) and self.x2_.position() == (240,240))
-			print("Plyaers wins")
-
-		if(self.x2_.position() == (-240,240) and self.x1_.position() == (0,240) and self.x3_ .position() == (240,240))
-			print("Plyaers wins")
-
-		if(self.x3_.position() == (-240,240) and self.x2_.position() == (0,240) and self.x1_.position() == (240,240))
-			print("Plyaers wins")
-
-
-	def horizontal_bottom(self, x1, x2, x3):
-
-		self.x1_ = x1
-		self.x2_ = x2
-		self.x3_ = x3
-
-		if(self.x1_.position() == (-240,-240) and self.x2_.position() == (0,-240) and self.x3_ .position() == (240,-240))
-			print("Players wins")
-
-		if(self.x2_.position() == (-240,-240) and self.x3_ .position() == (0,-240) and self.x1_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_ .position() == (-240,-240) and self.x1_.position() == (0,-240) and self.x2_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x1_.position() == (-240,-240) and self.x3_ .position() == (0,-240) and self.x2_.position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x2_.position() == (-240,-240) and self.x1_.position() == (0,-240) and self.x3_ .position() == (240,-240))
-			print("Plyaers wins")
-
-		if(self.x3_.position() == (-240,-240) and self.x2_.position() == (0,-240) and self.x1_.position() == (240,-240))
-			print("Plyaers wins")
 
 
 
+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
 
 
 
