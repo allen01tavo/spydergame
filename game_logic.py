@@ -25,65 +25,85 @@ class GameLogic:
 		self.l2_ = l2
 		self.l3_ = l3
 
-		rsl = False
 
-		if(self.x1_.position() == self.l1_ and self.x2_.position() == self.l2_ and self.x3_.position() == self.l3_)
+		if(str(self.x1_.position()) == self.l1_ and str(self.x2_.position()) == self.l2_ and str(self.x3_.position()) == self.l3_):
 			print("Players wins")
-			rsl = True
+			return True
 
-		if(self.x2_.position() == self.l1_ and self.x3_.position() == self.l2_ and self.x1_.position() == self.l3_)
+		if(str(self.x2_.position()) == self.l1_ and str(self.x3_.position()) == self.l2_ and str(self.x1_.position()) == self.l3_):
+			print("Plyaers wins")
+			return True
+
+		if(str(self.x3_.position()) == self.l1_ and str(self.x1_.position()) == self.l2_ and str(self.x2_.position()) == self.l3_):
+			print("Plyaers wins")
+			return True
+
+		if(str(self.x1_.position()) == self.l1_ and str(self.x3_.position()) == self.l2_ and str(self.x2_.position()) == self.l3_):
 			print("Plyaers wins")
 			rsl = True
 
-		if(self.x3_.position() == self.l1_ and self.x1_.position() == self.l2_ and self.x2_.position() == self.l3_)
+		if(str(self.x2_.position()) == self.l1_ and str(self.x1_.position())== self.l2_ and str(self.x3_.position()) == self.l3_):
 			print("Plyaers wins")
-			rsl = True
+			return True
 
-		if(self.x1_.position() == self.l1_ and self.x3_.position() == self.l2_ and self.x2_.position() == self.l3_)
+		if(str(self.x3_.position()) == self.l1_ and str(self.x2_.position()) == self.l2_ and str(self.x1_.position()) == self.l3_):
 			print("Plyaers wins")
-			rsl = True
+			return True
 
-		if(self.x2_.position() == self.l1_ and self.x1_.position() == self.l2_ and self.x3_.position() == self.l3_)
-			print("Plyaers wins")
-			rsl = True
+		else:
+			print("No winner")
+			return False
 
-		if(self.x3_.position() == self.l1_ and self.x2_.position() == self.l2_ and self.x1_.position() == self.l3_)
-			print("Plyaers wins")
-			rsl = True
 
-		rsl True
 
-	# function returns true if the 
+	# function returns true if the all chips line up diagonally
 	def diagonal_forward(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(-240,240)", "(0,0)", "(-240,-240)")
+		print(x1.position())
+		print(x2.position())
+		print(x3.position())
+		return self.game_logic(x1, x2, x3, '(-240.00,240.00)', '(0.00,0.00)', '(240.00,-240.00)')
 
 	def diagonal_backward(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(-240,-240)", "(0,0)", "(240,240)")
+		return self.game_logic(x1, x2, x3, '(-240.00,-240.00)', '(0.00,0.00)', '(240.00,240.00)')
 
 	def horizontl_top(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(-240,240)", "(0,240)", "(240,240)")
+		return self.game_logic(x1, x2, x3, '(-240.00,240.00)', '(0.00,240.00)', '(240.00,240.00)')
 
 	def horizontl_middle(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(-240,0)", "(0,240)", "(0,240)")
+		return self.ame_logic(x1, x2, x3, '(-240.00,0.00)', '(0.00,240.00)', '(0.00,240.00)')
 
 	def horizontl_bottom(self, x1, x2, x3):
-		return game_logic(x1,x2, x3, "(-240,-240)", "(0,-240)", "(240,-240)")
+		return self.game_logic(x1,x2, x3, '(-240.00,-240.00)', '(0.00,-240.00)', '(240.00,-240.00)')
 
 	def horizontl_lef(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(-240,240)", "(-240,0)", "(-240,-240)")
+		return self.game_logic(x1, x2, x3, '(-240.00,240.00)', '(-240.00,0.00)', '(-240.00,-240.00)')
 
 	def vertical_middle(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(0,240)", "(0,0)", "(0,-240)")
+		return self.game_logic(x1, x2, x3, "(0,240)", "(0,0)", "(0,-240)")
 
 	def vertical_middle(self, x1, x2, x3):
-		return game_logic(x1, x2, x3, "(240,-240)", "(240,0)", "(-240,-240)")
-
-	def game_logic(self, x1, x2, x3, l1, l2, l3):
+		return self.game_logic(x1, x2, x3, "(240,-240)", "(240,0)", "(-240,-240)")
 
 
+	def test(self):
+		print("This is a test of class GameLogic")
+
+# testing the class
+def main():
+	sample = GameLogic()
+	sample.test()
 
 
-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
+# calling main fucntion
+if __name__ == '__main__':
+
+	main()
+
+
+
+
+
+
 
 
 
