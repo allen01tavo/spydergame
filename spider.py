@@ -9,11 +9,16 @@ from turtle import Screen, Turtle
 from functools import partial
 import os
 import logging
+from game_logic import GameLogic
+import time
 
 logging.basicConfig(filename="log.txt", encoding='utf-8', level=logging.INFO)
 
 # Global Variable
-game_on = True
+GAME_ON = True
+SCORE1 = 0
+SCORE2 = 0
+
 
 logging.info("Starting Tic-Tac-Toe Spider")
 # Main Window
@@ -23,7 +28,6 @@ wn.bgcolor("purple")
 wn.setup(width= 800, height=640)
 wn.tracer(0)
 
-
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
@@ -32,7 +36,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
-pen.write("Player 1: 0 Player 2: 0", align="center", font=("Courier", 24, "normal"))
+
 
 # Second Layer: Field of play
 # Field
@@ -86,6 +90,60 @@ border5.right(45)
 border5.penup()
 border5.goto(0,0)
 
+pos1 = turtle.Turtle()
+pos1.color("white")
+pos1.shape('circle')
+pos1.shapesize(stretch_wid=2,stretch_len=2)
+pos1.goto(-240,240)
+
+pos2 = turtle.Turtle()
+pos2.color("white")
+pos2.shape('circle')
+pos2.shapesize(stretch_wid=2,stretch_len=2)
+pos2.goto(0,240)
+
+pos3 = turtle.Turtle()
+pos3.color("white")
+pos3.shape('circle')
+pos3.shapesize(stretch_wid=2,stretch_len=2)
+pos3.goto(240,240)
+
+pos4 = turtle.Turtle()
+pos4.color("white")
+pos4.shape('circle')
+pos4.shapesize(stretch_wid=2,stretch_len=2)
+pos4.goto(-240,0)
+
+pos5 = turtle.Turtle()
+pos5.color("white")
+pos5.shape('circle')
+pos5.shapesize(stretch_wid=2,stretch_len=2)
+pos5.goto(0,0)
+
+pos6 = turtle.Turtle()
+pos6.color("white")
+pos6.shape('circle')
+pos6.shapesize(stretch_wid=2,stretch_len=2)
+pos6.goto(240,0)
+
+pos7 = turtle.Turtle()
+pos7.color("white")
+pos7.shape('circle')
+pos7.shapesize(stretch_wid=2,stretch_len=2)
+pos7.goto(-240,-240)
+
+pos8 = turtle.Turtle()
+pos8.color("white")
+pos8.shape('circle')
+pos8.shapesize(stretch_wid=2,stretch_len=2)
+pos8.goto(0,-240)
+
+pos9 = turtle.Turtle()
+pos9.color("white")
+pos9.shape('circle')
+pos9.shapesize(stretch_wid=2,stretch_len=2)
+pos9.goto(240,-240)
+
 #player 1
 player1a = turtle.Turtle()
 player1a.speed(0)
@@ -94,7 +152,7 @@ player1a.color("black")
 player1a.fillcolor("yellow")
 player1a.shapesize(stretch_wid=2,stretch_len=2)
 player1a.penup()   
-player1a.goto(300,40)
+player1a.goto(340,40)
 player1a.dx = 10
 player1a.dy = 10
 
@@ -105,7 +163,7 @@ player1b.color("black")
 player1b.fillcolor("yellow")
 player1b.shapesize(stretch_wid=2,stretch_len=2)
 player1b.penup()   
-player1b.goto(300,90)
+player1b.goto(340,90)
 player1b.dx = 10
 player1b.dy = 10
 
@@ -116,7 +174,7 @@ player1c.color("black")
 player1c.fillcolor("yellow")
 player1c.shapesize(stretch_wid=2,stretch_len=2)
 player1c.penup()   
-player1c.goto(300,140)
+player1c.goto(340,140)
 player1c.dx = 10
 player1c.dy = 10
 
@@ -127,9 +185,8 @@ player2a.color("black")
 player2a.fillcolor("red")
 player2a.shape('circle')
 player2a.shapesize(stretch_wid=2,stretch_len=2)
-player2a.write("X")
 player2a.penup()   
-player2a.goto(-300,-40)
+player2a.goto(-340,-40)
 player2a.dx = 10
 player2a.dy = 10
 
@@ -140,9 +197,9 @@ player2b.color("black")
 player2b.fillcolor("red")
 player2b.shape('circle')
 player2b.shapesize(stretch_wid=2,stretch_len=2)
-player2b.write("X", align="center", font=("Courier", 32, "normal"))
-player2b.penup()   
-player2b.goto(-300,-90)
+player2b.penup()  
+player2b.width(5)
+player2b.goto(-340,-90)
 player2b.dx = 10
 player2b.dy = 10
 
@@ -153,9 +210,8 @@ player2c.color("black")
 player2c.fillcolor("red")
 player2c.shape('circle')
 player2c.shapesize(stretch_wid=2,stretch_len=2)
-player2c.write('X', font=type, align='center')
-player2c.penup()   
-player2c.goto(-300,-140)
+player2c.penup()
+player2c.goto(-340,-140)
 player2c.dx = 10
 player2c.dy = 10
 
@@ -257,7 +313,6 @@ def restart_():
 	restart_button.dx = 50
 	restart_button.dy = 15
 
-
 # help window popup
 # it will be binded to the letter 'h'
 def help_function():
@@ -282,14 +337,21 @@ def close_function():
 
 # resets players to initial position
 # it will be bind to the letter 'r'
-def restart_function():
+def restart_function(str = None):
 	player1a.goto(300,40)
 	player1b.goto(300,90)
 	player1c.goto(300,140)
 	player2a.goto(-300,-40)
 	player2b.goto(-300,-90)
 	player2c.goto(-300,-140)
-	print("Game has been re-started")
+	player1a.fillcolor("yellow")
+	player1b.fillcolor("yellow")
+	player1c.fillcolor("yellow")
+	player2a.fillcolor("red")
+	player2b.fillcolor("red")
+	player2c.fillcolor("red")
+	if str != None:
+		print(str)
 	move_players()
 
 # user is able to drag and move the chips
@@ -302,7 +364,6 @@ def move_players():
 	player1b.ondrag(move_player_1b)
 	player1a.ondrag(move_player_1a)
 	player1c.ondrag(move_player_1c)
-
 
 def close_wn():
 	wn.bye()
@@ -318,6 +379,13 @@ def close_game_banner():
 	banner.goto(0,-310)
 	banner.write("Press Esc Key to Exit Game", align="center", font=("Courier", 24, "normal"))
 
+def refresh():
+	wn.update()
+	time.sleep(2)	
+	restart_function()
+	wn.update()
+	time.sleep(0.5)
+	restart_function()
 
 # Keyboard bindings
 wn.listen()
@@ -328,25 +396,81 @@ wn.onkeypress(restart_function, "r")
 # End of Keyboard bindings
 
 def main():
+	sample = GameLogic()
+	score_1 = 0
+	score_2 = 0
 
-	while game_on:
+	def winning ():
+
+		if sample.diagonal_forward(player1a, player1b, player1c):
+			return 1
+		if sample.diagonal_forward(player2a, player2b, player2c):
+			return 2
+		if sample.diagonal_backward(player1a, player1b, player1c):
+			return 1
+		if sample.diagonal_backward(player2a, player2b, player2c):
+			return 2
+		if sample.horizontal_top(player1a, player1b, player1c):
+			return 1
+		if sample.horizontal_top(player2a, player2b, player2c):
+			return 2
+		if sample.horizontal_middle(player1a, player1b, player1c):
+			return 1
+		if sample.horizontal_middle(player2a, player2b, player2c):
+			return 2
+		if sample.horizontal_bottom(player1a, player1b, player1c):
+			return 1
+		if sample.horizontal_bottom(player2a, player2b, player2c):
+			return 2
+		if sample.vertical_left(player1a, player1b, player1c):
+			return 1
+		if sample.vertical_left(player2a, player2b, player2c):
+			return 2
+		if sample.vertical_middle(player1a, player1b, player1c):
+			return 1
+		if sample.vertical_middle(player2a, player2b, player2c):
+			return 2
+		if sample.vertical_right(player1a, player1b, player1c):
+			return 1
+		if sample.vertical_right(player2a, player2b, player2c):
+			return 2
+
+	while GAME_ON:
+
 		help_()
 		close_()
 		restart_()
 		close_game_banner()
 		move_players()
-		# implementation needed for the logic of the game
-		# coordinate for the game
-		# (-240, 240), (0, 240), (240, 240)
-		# (-240, 0), (0,0), (240, 0)
-		# (-240, -240), (0, -240), (240, -240)
-		wn.update()
 
+		# These allow the players to aligned the chip or token to the correct spot on the board
+		sample.position(player2a)
+		sample.position(player2b)
+		sample.position(player2c)
+		sample.position(player1a)
+		sample.position(player1b)
+		sample.position(player1c)
+		
+		if winning() == 1:
+			score_1 += 1
+			refresh() # this function is needed so the score does not increase for the same win
+
+		if winning() == 2:
+			score_2 += 1
+			refresh()
+
+		pen.clear()
+		pen.write("Yellow: {} Red: {}".format(score_1, score_2), align="center", font=("Courier", 24, "normal"))
+
+		wn.update()
 
 
 # calling main function
 if __name__ == "__main__":
 
 	main()
+	
+
+
 	
 
