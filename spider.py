@@ -396,43 +396,43 @@ wn.onkeypress(restart_function, "r")
 # End of Keyboard bindings
 
 def main():
-	sample = GameLogic()
+	game = GameLogic()
 	score_1 = 0
 	score_2 = 0
 
 	def winning ():
 
-		if sample.diagonal_forward(player1a, player1b, player1c):
+		if game.diagonal_forward(player1a, player1b, player1c):
 			return 1
-		if sample.diagonal_forward(player2a, player2b, player2c):
+		if game.diagonal_forward(player2a, player2b, player2c):
 			return 2
-		if sample.diagonal_backward(player1a, player1b, player1c):
+		if game.diagonal_backward(player1a, player1b, player1c):
 			return 1
-		if sample.diagonal_backward(player2a, player2b, player2c):
+		if game.diagonal_backward(player2a, player2b, player2c):
 			return 2
-		if sample.horizontal_top(player1a, player1b, player1c):
+		if game.horizontal_top(player1a, player1b, player1c):
 			return 1
-		if sample.horizontal_top(player2a, player2b, player2c):
+		if game.horizontal_top(player2a, player2b, player2c):
 			return 2
-		if sample.horizontal_middle(player1a, player1b, player1c):
+		if game.horizontal_middle(player1a, player1b, player1c):
 			return 1
-		if sample.horizontal_middle(player2a, player2b, player2c):
+		if game.horizontal_middle(player2a, player2b, player2c):
 			return 2
-		if sample.horizontal_bottom(player1a, player1b, player1c):
+		if game.horizontal_bottom(player1a, player1b, player1c):
 			return 1
-		if sample.horizontal_bottom(player2a, player2b, player2c):
+		if game.horizontal_bottom(player2a, player2b, player2c):
 			return 2
-		if sample.vertical_left(player1a, player1b, player1c):
+		if game.vertical_left(player1a, player1b, player1c):
 			return 1
-		if sample.vertical_left(player2a, player2b, player2c):
+		if game.vertical_left(player2a, player2b, player2c):
 			return 2
-		if sample.vertical_middle(player1a, player1b, player1c):
+		if game.vertical_middle(player1a, player1b, player1c):
 			return 1
-		if sample.vertical_middle(player2a, player2b, player2c):
+		if game.vertical_middle(player2a, player2b, player2c):
 			return 2
-		if sample.vertical_right(player1a, player1b, player1c):
+		if game.vertical_right(player1a, player1b, player1c):
 			return 1
-		if sample.vertical_right(player2a, player2b, player2c):
+		if game.vertical_right(player2a, player2b, player2c):
 			return 2
 
 	while GAME_ON:
@@ -444,12 +444,12 @@ def main():
 		move_players()
 
 		# These allow the players to aligned the chip or token to the correct spot on the board
-		sample.position(player2a)
-		sample.position(player2b)
-		sample.position(player2c)
-		sample.position(player1a)
-		sample.position(player1b)
-		sample.position(player1c)
+		game.position(player2a)
+		game.position(player2b)
+		game.position(player2c)
+		game.position(player1a)
+		game.position(player1b)
+		game.position(player1c)
 		
 		if winning() == 1:
 			score_1 += 1
